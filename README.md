@@ -42,9 +42,8 @@ For the CSS we have the following. All you have to do is to update a few CSS var
 }
 
 .container {
-  font-size: 0; /*disable white space between inline block element */
+  font-size: 0;
 }
-
 .container div {
   width: var(--s);
   margin: var(--mv) var(--mh);
@@ -52,19 +51,15 @@ For the CSS we have the following. All you have to do is to update a few CSS var
   display: inline-block;
   font-size:initial;
   clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
-  background: red;
   margin-bottom: calc(var(--mv) - var(--vc)); 
-}
-.container div:nth-child(odd) {
-  background:green;
 }
 .container::before {
   content: "";
   width: calc(var(--s)/2 + var(--mh));
   float: left;
   height: 135%;
-  shape-outside: repeating-linear-gradient(     
-                   #0000 0 calc(var(--f) - 2px),      
-                   #000  0 var(--f));
+  shape-outside: repeating-linear-gradient( #0000 0 calc(var(--f) - 2px),#000  0 var(--f));
 }
 ```
+
+Find all the details in my [CSS-tricks article](https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/)
