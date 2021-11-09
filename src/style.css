@@ -1,0 +1,48 @@
+.main {
+  display:flex;
+  --s: 100px; /* size */
+  --r: 1; /* ratio */
+  /* clip-path */
+  --h: 0.25;  
+  --v: 0.35; 
+  --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
+  --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+  
+  /*margin */
+  --mv: 4px; /* vertical */
+  --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal */
+  /* for the float*/
+  --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
+}
+
+.container {
+  font-size: 0; /*disable white space between inline block element */
+}
+
+.container div {
+  width: var(--s);
+  margin: var(--mv) var(--mh);
+  height: calc(var(--s)*var(--r)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
+  background: red;
+  margin-bottom: calc(var(--mv) - var(--vc)); 
+}
+.container div:nth-child(odd) {
+  background:green;
+}
+.container::before {
+  content: "";
+  width: calc(var(--s)/2 + var(--mh));
+  float: left;
+  height: 135%;
+  shape-outside: repeating-linear-gradient(     
+                   #0000 0 calc(var(--f) - 2px),      
+                   #000  0 var(--f));
+}
+
+.panel {position: fixed;top: 20px;right: 20px;padding: 10px;border: 1px solid;border-radius: 10px;background: #fff;font-family: sans-serif;opacity:.5}
+.panel:hover {opacity:1}
+.panel > div:not(:last-child) {border-bottom: 1px solid;padding-bottom: 10px;margin-bottom: 10px;}
+*,*::before {transition:0.5s linear}
