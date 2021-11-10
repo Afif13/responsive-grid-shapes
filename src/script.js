@@ -1,5 +1,5 @@
 let inputs = document.querySelectorAll('input[type=range]')
-let elem = document.querySelector('.main')
+let elem = document.querySelector('.main.interactive')
 
 
 inputs.forEach(input => {
