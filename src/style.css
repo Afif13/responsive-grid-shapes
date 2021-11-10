@@ -18,6 +18,7 @@
 .container {
   font-size: 0; /*disable white space between inline block element */
   counter-reset:num;
+  padding-bottom:calc(var(--s)*var(--r) + var(--mv));
 }
 
 .container div {
@@ -41,14 +42,14 @@
                    #000  0 var(--f));
 }
 
-.container div:before {
+.container div::before {
   content:counter(num);
   counter-increment:num;
   margin:auto;
   font-family:sans-serif;
   font-weight:bold;
 }
-
+h1 {text-align:center;}
 .panel {position: fixed;top: 20px;right: 20px;padding: 10px;border: 1px solid;border-radius: 10px;background: #fff;font-family: sans-serif;opacity:.5}
 .panel:hover {opacity:1}
 .panel > div:not(:last-child) {border-bottom: 1px solid;padding-bottom: 10px;margin-bottom: 10px;}
