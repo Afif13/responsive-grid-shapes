@@ -17,21 +17,20 @@
 
 .container {
   font-size: 0; /*disable white space between inline block element */
+  counter-reset:num;
 }
 
 .container div {
   width: var(--s);
   margin: var(--mv) var(--mh);
   height: calc(var(--s)*var(--r)); 
-  display: inline-block;
-  font-size:initial;
+  display: inline-flex;
+  font-size: 25px;
   clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
-  background: red;
+  background: lightblue;
   margin-bottom: calc(var(--mv) - var(--vc)); 
 }
-.container div:nth-child(odd) {
-  background:green;
-}
+
 .container::before {
   content: "";
   width: calc(var(--s)/2 + var(--mh));
@@ -40,6 +39,14 @@
   shape-outside: repeating-linear-gradient(     
                    #0000 0 calc(var(--f) - 2px),      
                    #000  0 var(--f));
+}
+
+.container div:before {
+  content:counter(num);
+  counter-increment:num;
+  margin:auto;
+  font-family:sans-serif;
+  font-weight:bold;
 }
 
 .panel {position: fixed;top: 20px;right: 20px;padding: 10px;border: 1px solid;border-radius: 10px;background: #fff;font-family: sans-serif;opacity:.5}
