@@ -48,7 +48,7 @@ For the CSS we have the following. All you have to do is to update a few CSS var
   width: var(--s);
   margin: var(--mv) var(--mh);
   height: calc(var(--s)*var(--r)); 
-  display: inline-block;
+  display: inline-block; /* or inline-grid, inline-flex, etc */
   font-size:initial;
   clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
   margin-bottom: calc(var(--mv) - var(--vc)); 
