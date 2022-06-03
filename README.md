@@ -28,17 +28,19 @@ For the CSS we have the following. All you have to do is to update a few CSS var
 .main {
   --s: 100px; /* size of the shape */
   --r: 1;     /* ratio */
-  --mv: 4px; /* margin (gap) */
+  --mv: 4px;  /* vertical margin  */
   /* clip-path parametres*/
   --h: 0.25;  
   --v: 0.35; 
   /**/
+  
   /* You don't need to touch the below */
-  display:flex;
-  --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
-  --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
-  --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal */
+  --hc: calc(clamp(0,var(--h),0.5) * var(--s)) ;
+  --vc: calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+  --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal margin */
   --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
+  /**/
+  display:flex;
 }
 
 .container {
